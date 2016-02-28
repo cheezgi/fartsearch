@@ -1,2 +1,2 @@
 # fartsearch
-initial commitI guess iunno
+search the web for farts
