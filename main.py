@@ -1,36 +1,11 @@
-#search the web for farts (other keywords?)
-#python 3.5.1
-#thanks to bucky for the tutorial
-#multithreaded(?) web development in the future?
-#thanks to bucky roberts for framework
+#functions used for crawling websites
 import os
-import argparse
 import re
 import sys
 
-#todo - move to entry point
-#current target is a raspberry pi on my network for testing purposes
-#get target from command line
-#parser = argparse.ArgumentParser(description = 'Crawl the web for farts')
-#parser.add_argument('target', metavar = 'target', type = str, help = 'Target website')
-#args = parser.parse_args()
-#try:
-#target = (re.split('/', args.target, 0, 0))[2]
-#except IndexError:
-#	print('\nfartsearch: search the web for farts')
-#	print('\nusage:')
-#	print('python main.py target')
-#	sys.exit()
-
-target = '192.168.1.241'
-class KillMe:
-	def __init__(self, target):
-		self.target = target
-args = KillMe('http://192.168.1.241/')
-
-print('')
-print('searching for farts in ' + target)
-print('~~~~~~~~~~~~~~~~~~~~~~~' + '~'*len(target))
+if 'spider' not in sys.modules:
+	print('Due to a freak accident, this is not the entry point to fartsearch.')
+	print('You are looking for teast.py: python run.py projectName URL')
 
 #each crawled website (page?) is a seperate folder
 def create_project_dir(directory):
@@ -57,7 +32,7 @@ def write_file(path, data):
 #add data to existing file
 def append_to_file(path, data):
 	with open(path, 'a') as file:
-		file.write(data, '\n')
+		file.write(data + '\n')
 
 #delete contents of a file
 def delete_file_contents(path):
@@ -77,7 +52,3 @@ def set_to_file(links, filea):
 	delete_file_contents(filea)
 	for link in sorted(links):
 		append_to_file(filea, link)
-
-#initialize project if not exists
-create_project_dir(target)
-create_data_files(target, args.target)
