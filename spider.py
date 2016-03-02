@@ -1,7 +1,7 @@
 #spider class object: handles queue stuff and whatnot
 from urllib.request import urlopen
 from link_finder import LinkFinder
-from main import *
+from general import *
 
 #spider class
 class Spider:
@@ -15,7 +15,6 @@ class Spider:
 	crawled = set()
 
 	def __init__(self, project_name, base_url, domain_name):
-		print('Spider 1 for project + ' + project_name + ' started')
 		Spider.project_name = project_name
 		Spider.base_url = base_url
 		Spider.domain_name = domain_name
@@ -34,7 +33,6 @@ class Spider:
 	@staticmethod
 	def crawl_page(thread_name, page_url):
 		if page_url not in Spider.crawled:
-			print(thread_name + ' crawling page ' + page_url)
 			print(str(len(Spider.queue)) + ' in queue | ' + str(len(Spider.crawled)) + ' crawled')
 			Spider.add_links_to_queue(Spider.gather_links(page_url))
 			try:

@@ -13,7 +13,6 @@ class LinkFinder(HTMLParser):
 	#search for links <a>
 	def handle_starttag(self, tag, attrs):
 		if tag == 'a':
-			print('found link')
 			for (attribute, value) in  attrs:
 				if attribute == 'href':
 					#handles relative urls

@@ -4,6 +4,7 @@ import sys
 import re
 import argparse
 from spider import *
+from queue import Queue
 
 #get website from command line
 parser = argparse.ArgumentParser(description = 'Crawl the web for farts')
