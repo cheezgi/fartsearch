@@ -6,7 +6,7 @@ Have you ever wanted to see exactly how many farts are on the internet? Me neith
 Currently only collects links on a given page and saves them to projectName/queue.txt
 
 ###usage
-    python run.py [-h] projectName targetURL
+    python main.py [-h] [-t #threads] projectName targetURL
 
 ##thanks
 Sort of a fork of buckyroberts's Spider.
